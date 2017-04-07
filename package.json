@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"less-plugin-autoprefix",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "less-plugin-autoprefix",
+    "description": "api documentation for [less-plugin-autoprefix (v1.5.1)](http://lesscss.org) [![npm package](https://img.shields.io/npm/v/npmdoc-less-plugin-autoprefix.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-less-plugin-autoprefix) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-less-plugin-autoprefix.svg)](https://travis-ci.org/npmdoc/node-npmdoc-less-plugin-autoprefix)",
     "devDependencies": {
-        "less-plugin-autoprefix": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "less-plugin-autoprefix": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-less-plugin-autoprefix",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-less-plugin-autoprefix",
+    "keywords": [
+        "documentation",
+        "less-plugin-autoprefix"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_less_plugin_autoprefix.js",
+    "name": "npmdoc-less-plugin-autoprefix",
+    "nameAlias": "npmdoc_less_plugin_autoprefix",
+    "nameOriginal": "npmdoc-less-plugin-autoprefix",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-less-plugin-autoprefix"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
